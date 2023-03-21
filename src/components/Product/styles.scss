@@ -1,0 +1,20 @@
+.product {
+    &__image {
+        & > img {
+            border-radius: 0.5rem;
+            width: 190px;
+        }
+    }
+}
+
+.center {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.price {
+    font-weight: 700;
+    position: relative;
+    left: 63px;
+    top: -15px;
+}

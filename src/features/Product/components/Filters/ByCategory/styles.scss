@@ -1,0 +1,19 @@
+.root {
+    padding: 10px;
+}
+
+.category {
+    margin: 0;
+    padding: 4px;
+    list-style-type: none;
+    transition: all 10s;
+
+    & > li {
+        margin-top: 8px;
+       
+        &:hover {
+            color: #04aa6d;
+            cursor: pointer;
+        }
+    }
+}
