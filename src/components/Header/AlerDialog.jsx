@@ -32,13 +32,13 @@ export default function AlertDialog() {
           <h3> {"Phần Giới thiệu.. 💬"}</h3>
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            - Đây là một WebSite về Menu của quán ạ!!
+          <DialogContentText id="alert-dialog-description" fontWeight='bold'>
+            - Đây là một WebSite Online của quán ạ!!
             <br></br>
-            - Nhằm giới thiệu về các sản phẩm kem của quán mong anh/chị tham khảo và đánh giá ^^.
+            - Nhằm giới thiệu về các sản phẩm kem của quán để phục vụ tận nơi cho quý khách 😋
             <br></br>
             <br></br>
-            - Xin cảm ơn quý khách 💚
+            - Xin cảm ơn quý khách ạ 💚
           </DialogContentText>
         </DialogContent>
         <DialogActions>

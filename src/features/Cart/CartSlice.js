@@ -37,9 +37,10 @@ const cartSlice = createSlice({
         },
 
         removeFormCard(state, action) {
-            const idNeedToRemove = action.payload;
-            state.cartItems = state.cartItems.filter(x => x.id !== idNeedToRemove);
+            const idToRemove = (action.payload);
+            state.cartItems = state.cartItems.filter((x) => x.id !== idToRemove);
         },
+          
     },
 });
 
