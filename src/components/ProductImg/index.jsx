@@ -76,14 +76,15 @@ function ProductImg({ product }) {
                 <Typography variant="h5" sx={{
                     // backgroundColor: 'primary.dark',
                 }}>
-                    Danh sách sản phẩm mới
-                    <img style={{
+                    Danh sách sản phẩm mới 🍨
+                    {/* <img style={{
                         marginLeft: 10,
                     }}
                         height='30px'
                         width='40px'
                         src='https://flamingo-dailai.com/wp-content/uploads/2019/06/new_icon.gif'
-                        alt='...' />
+                        alt='...' /> */}
+
                 </Typography>
                 <br></br>
 

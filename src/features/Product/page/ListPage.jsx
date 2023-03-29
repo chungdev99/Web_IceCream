@@ -67,7 +67,7 @@ function ListPage() {
     }, [filters]);
 
     // Change Page Pagination
-    const handlePageChange = (page) => {
+    const handlePageChange = (e,page) => {
         setFilters((prev) => ({
             ...prev,
             _page: page

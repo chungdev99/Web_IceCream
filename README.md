@@ -21,4 +21,19 @@
     - Quantity product
 - Page Cart ( Call API && Redux )
     - ...
-    - ...
+
+
+## Page
+***
+- Login/Logout
+  - ... 
+- Home Page
+![img1](./public/img1.png)
+- Home Page
+![img2](./public/img2.png)
+- Page Product
+![img3](./public/img3.png)
+- Page Product Detail
+![img4](./public/img4.png)
+- Page Cart 
+![img5](./public/img5.png) 
