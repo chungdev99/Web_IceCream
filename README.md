@@ -21,7 +21,8 @@
     - Quantity product
 - Page Cart ( Call API && Redux )
     - ...
-
+- Page Payment history
+    - ...
 
 ## Page
 ***
@@ -37,3 +38,5 @@
 ![img4](./public/img4.png)
 - Page Cart 
 ![img5](./public/img5.png) 
+- Page Payment history
+  - ...
