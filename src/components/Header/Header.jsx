@@ -1,17 +1,21 @@
-import * as React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import AlertDialog from './AlerDialog';
-import { Badge } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { cartItemsCountSelector } from '../../features/Cart/Selector';
+import AlertDialog from './AlerDialog';
+// import CloseIcon from '@mui/icons-material/Close';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import Register from '../../features/Auth/components/Register';
+// import Login from '../../features/Auth/components/Login';
 
 
 export default function Header() {
@@ -23,6 +27,45 @@ export default function Header() {
   };
 
   const cartItemCount = useSelector(cartItemsCountSelector);
+
+
+  //
+  // const [open, setOpen] = useState(false);
+
+  // const handleClose = (_event, reason) => {
+  //   // ko the thoat tru khi bam cancel
+  //   if (reason === 'escapeKeyDown' || reason === 'backdropClick') return;
+  //   setOpen(false);
+  // };
+
+  // const MODE = {
+  //   LOGIN: 'login',
+  //   REGISTER: 'register'
+  // }
+
+  // const [mode, setMode] = useState(MODE.LOGIN);
+
+  //// show icon when login
+  // const loginInUser = useSelector(state => state.user.current);
+  // const isLoggedIn = !!loginInUser.id;
+
+  // //// show menu to Avatar
+  // const [anchorEl, setAnchorEl] = useState(null);
+
+  // const handleUserClick = (e) => {
+  //   setAnchorEl(e.currentTarget);
+  // }
+
+  // const handleCloseMenu = () => {
+  //   setAnchorEl(null);
+  // };
+
+  // const handleLogOut = () => {
+  //   const action = logOut();
+  //   dispath(action);
+
+  //   setAnchorEl(null);
+  // };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -87,6 +130,46 @@ export default function Header() {
               marginRight: 30,
               color: 'white',
             }} disabled >Đăng nhập</Button>
+
+            {/* <Dialog
+              // disableBackdropClick 
+              disableEscapeKeyDown
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="form-dialog-title">
+
+              <IconButton onClick={handleClose} >
+                <CloseIcon />
+              </IconButton>
+
+              <DialogContent>
+                {mode === MODE.REGISTER && (
+                  <>
+                    <Register closeDialog={handleClose} />
+
+                    <Box textAlign='center'>
+                      <Button color='primary' onClick={() => setMode(MODE.LOGIN)}>
+                        FORM LOGIN
+                      </Button>
+                    </Box>
+                  </>
+                )}
+
+                {mode === MODE.LOGIN && (
+                  <>
+                    <Login closeDialog={handleClose} />
+
+                    <Box textAlign='center'>
+                      <Button color='primary' onClick={() => setMode(MODE.REGISTER)}>
+                        FORM REGISTER
+                      </Button>
+                    </Box>
+                  </>
+                )}
+
+              </DialogContent>
+            </Dialog> */}
+
 
           </Box >
 
