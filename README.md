@@ -26,11 +26,15 @@
 
 ## Page
 ***
-- Login/Logout
-  - ... 
-- Home Page
+- Login
+![img6](./public/img6.png)
+- Register
+![img7](./public/img7.png)
+- Login success/ Logout
+  - ...
+- Home Page (1)
 ![img1](./public/img1.png)
-- Home Page
+- Home Page (2)
 ![img2](./public/img2.png)
 - Page Product
 ![img3](./public/img3.png)

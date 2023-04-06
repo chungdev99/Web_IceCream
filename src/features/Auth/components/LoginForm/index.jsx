@@ -8,6 +8,7 @@ import InputField from '../../../../components/formControl/InputField';
 import PasswordField from '../../../../components/formControl/PasswordField';
 import LinearProgress from '@mui/material/LinearProgress';
 import { Box } from '@mui/system';
+import PersonIcon from '@mui/icons-material/Person';
 
 
 
@@ -70,8 +71,8 @@ function LoginForm(props) {
                 </Box>
             }
             <Box sx={{ textAlign: 'center' }}>
-                <Avatar sx={{ margin: '0 auto' }}>
-
+                <Avatar sx={{ margin: '0 auto' }} >
+                    <PersonIcon color="primary" />
                 </Avatar>
                 <br></br>
                 <Typography component="h3" variant="h5">
