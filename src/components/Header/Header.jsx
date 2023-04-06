@@ -24,7 +24,6 @@ import { logOut } from '../../features/Auth/userSlice';
 export default function Header() {
 
   const dispath = useDispatch();
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -59,7 +58,6 @@ export default function Header() {
   //// show icon when login
   const loginInUser = useSelector(state => state.user.current);
   const isLoggedIn = !!loginInUser.id;
-
 
   //// show menu to Avatar
   const [anchorEl, setAnchorEl] = useState(null);
@@ -162,16 +160,10 @@ export default function Header() {
             </Menu>
 
             <Dialog
-              // disableBackdropClick 
               disableEscapeKeyDown
               open={open}
               onClose={handleClose}
               aria-labelledby="form-dialog-title">
-
-              {/* <IconButton onClick={handleClose} >
-                <CloseIcon />
-              </IconButton> */}
-
               <DialogContent>
                 {mode === MODE.REGISTER && (
                   <>

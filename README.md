@@ -15,14 +15,16 @@
 - Page Product ( Call API )
     - Search name product.
     - Product portfolio.
-    - Product List
+    - Product list
     - Product pagination.
     - Product filter.
 - Page Detail Product ( Call API )
     - Product detail 
     - Quantity product
 - Page Cart ( Call API && Redux )
-    - Total amount of money
+    - Show list item buy
+    - Total amount of money item
+    - Delete item not buy
 - Page Payment history
     - ...
 
