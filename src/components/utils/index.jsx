@@ -1,0 +1,1 @@
+export const userApi = 'https://api.ezfrontend.com/'

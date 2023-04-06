@@ -17,8 +17,8 @@ function RegisterForm(props) {
     
     const schema = yup.object().shape({
         fullName: yup.string()
-            .required('Vui lòng nhập họ tên ')
-            .test('Should has at least two words.', 'Please enter at least two words.', value => {
+            .required('Vui lòng nhập họ tên')
+            .test('Should has at least two words.', 'Vui lòng nhập họ và tên', value => {
                 return value.split(' ').length >= 2;
             }),
 
@@ -32,7 +32,7 @@ function RegisterForm(props) {
 
         retypePassword: yup.string()
             .required('Vui lòng nhập mật khẩu')
-            .oneOf([yup.ref('password')], ('password dose not match'))
+            .oneOf([yup.ref('password')], ('mật khẩu không khớp'))
     });
 
     const form = useForm({

@@ -1,11 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import ProductImg from './ProductImg';
 import Image1 from './Image1';
 import { useState } from 'react';
 // import Scroll from './Scroll';
-
-// HiHi.propTypes = {};
 
 function LayoutHome(props) {
 

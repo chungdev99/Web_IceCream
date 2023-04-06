@@ -11,15 +11,14 @@ Login.propTypes = {
 };
 
 function Login(props) {
+
     const dispath = useDispatch();
 
     // const { enqueueSnackbar } = useSnackbar();
-
     const handleSubmit = async (values) => {
         // console.log('Form Submit', values);
         try {
             // auto set username = email
-
             const action = login(values);
             const resultAction = await dispath(action);
             unwrapResult(resultAction);
@@ -29,7 +28,6 @@ function Login(props) {
             if (closeDialog) {
                 closeDialog();
             }
-
             // console.log('new user', user);
 
         } catch (error) {

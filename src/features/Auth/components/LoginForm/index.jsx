@@ -10,14 +10,11 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { Box } from '@mui/system';
 import PersonIcon from '@mui/icons-material/Person';
 
-
-
 LoginForm.propTypes = {
     onSubmit: PropTypes.func,
 };
 
 function LoginForm(props) {
-
     // const schema = yup.object().shape({
     //     fullname: yup.string()
     //     .required(' pls enter your full name')
@@ -58,7 +55,6 @@ function LoginForm(props) {
     };
 
     const { isSubmitting } = form.formState;
-
 
     return (
         <div >

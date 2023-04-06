@@ -1,6 +1,6 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Badge } from '@mui/material';
+import { Badge, Menu, MenuItem } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { cartItemsCountSelector } from '../../features/Cart/Selector';
 import AlertDialog from './AlerDialog';
@@ -17,9 +17,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Register from '../../features/Auth/components/Register';
 import Login from '../../features/Auth/components/Login';
+import FaceIcon from '@mui/icons-material/Face';
+import { logOut } from '../../features/Auth/userSlice';
 
 
 export default function Header() {
+
+  const dispath = useDispatch();
 
   const [open, setOpen] = React.useState(false);
 
@@ -53,26 +57,27 @@ export default function Header() {
   const [mode, setMode] = useState(MODE.LOGIN);
 
   //// show icon when login
-  // const loginInUser = useSelector(state => state.user.current);
-  // const isLoggedIn = !!loginInUser.id;
+  const loginInUser = useSelector(state => state.user.current);
+  const isLoggedIn = !!loginInUser.id;
 
-  // //// show menu to Avatar
-  // const [anchorEl, setAnchorEl] = useState(null);
 
-  // const handleUserClick = (e) => {
-  //   setAnchorEl(e.currentTarget);
-  // }
+  //// show menu to Avatar
+  const [anchorEl, setAnchorEl] = useState(null);
 
-  // const handleCloseMenu = () => {
-  //   setAnchorEl(null);
-  // };
+  const handleUserClick = (e) => {
+    setAnchorEl(e.currentTarget);
+  }
 
-  // const handleLogOut = () => {
-  //   const action = logOut();
-  //   dispath(action);
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
 
-  //   setAnchorEl(null);
-  // };
+  const handleLogOut = () => {
+    const action = logOut();
+    dispath(action);
+
+    setAnchorEl(null);
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -131,14 +136,30 @@ export default function Header() {
               <Button color="inherit">Sản phẩm</Button>
             </NavLink>
 
+            {!isLoggedIn && (
+              <Button style={{
+                textDecoration: 'none',
+                marginRight: 30,
+                color: 'white',
+              }}
+                onClick={handleClickOpen}
+              > Đăng nhập</Button>
+            )}
 
-            <Button style={{
-              textDecoration: 'none',
-              marginRight: 30,
-              color: 'white',
-            }}
-              onClick={handleClickOpen}
-            > Đăng nhập</Button>
+            {isLoggedIn && (
+              <IconButton onClick={handleUserClick}>
+                <FaceIcon />
+              </IconButton>
+            )}
+
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleCloseMenu}
+            >
+              <MenuItem onClick={handleCloseMenu}>Tài khoản</MenuItem>
+              <MenuItem onClick={handleLogOut}>Đăng xuất</MenuItem>
+            </Menu>
 
             <Dialog
               // disableBackdropClick 
@@ -168,7 +189,7 @@ export default function Header() {
                     <Login closeDialog={handleClose} />
                     <Box textAlign='center'>
                       <Button color='primary' onClick={() => setMode(MODE.REGISTER)}>
-                         Chưa Đăng ký
+                        Chưa Đăng ký
                       </Button>
                     </Box>
                   </>

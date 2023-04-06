@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { userApi } from '../components/utils';
 
 const axiosClientAuth = axios.create({
-  baseURL: 'https://api.ezfrontend.com/',
+  baseURL: userApi,
   headers: {
     'Content-Type': 'application/json',
   },
