@@ -1,4 +1,3 @@
-// const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import userApi from '../../api/userApi';
 

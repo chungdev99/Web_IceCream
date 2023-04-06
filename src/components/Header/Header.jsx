@@ -7,18 +7,29 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { cartItemsCountSelector } from '../../features/Cart/Selector';
 import AlertDialog from './AlerDialog';
-// import CloseIcon from '@mui/icons-material/Close';
-// import DialogContent from '@material-ui/core/DialogContent';
-// import Register from '../../features/Auth/components/Register';
-// import Login from '../../features/Auth/components/Login';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Register from '../../features/Auth/components/Register';
+import Login from '../../features/Auth/components/Login';
 
 
 export default function Header() {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const navigate = useNavigate();
 
@@ -28,22 +39,18 @@ export default function Header() {
 
   const cartItemCount = useSelector(cartItemsCountSelector);
 
-
-  //
-  // const [open, setOpen] = useState(false);
-
   // const handleClose = (_event, reason) => {
   //   // ko the thoat tru khi bam cancel
   //   if (reason === 'escapeKeyDown' || reason === 'backdropClick') return;
   //   setOpen(false);
   // };
 
-  // const MODE = {
-  //   LOGIN: 'login',
-  //   REGISTER: 'register'
-  // }
+  const MODE = {
+    LOGIN: 'login',
+    REGISTER: 'register'
+  }
 
-  // const [mode, setMode] = useState(MODE.LOGIN);
+  const [mode, setMode] = useState(MODE.LOGIN);
 
   //// show icon when login
   // const loginInUser = useSelector(state => state.user.current);
@@ -129,18 +136,20 @@ export default function Header() {
               textDecoration: 'none',
               marginRight: 30,
               color: 'white',
-            }} disabled >Đăng nhập</Button>
+            }}
+              onClick={handleClickOpen}
+            > Đăng nhập</Button>
 
-            {/* <Dialog
+            <Dialog
               // disableBackdropClick 
               disableEscapeKeyDown
               open={open}
               onClose={handleClose}
               aria-labelledby="form-dialog-title">
 
-              <IconButton onClick={handleClose} >
+              {/* <IconButton onClick={handleClose} >
                 <CloseIcon />
-              </IconButton>
+              </IconButton> */}
 
               <DialogContent>
                 {mode === MODE.REGISTER && (
@@ -149,28 +158,26 @@ export default function Header() {
 
                     <Box textAlign='center'>
                       <Button color='primary' onClick={() => setMode(MODE.LOGIN)}>
-                        FORM LOGIN
+                        Đăng nhập
                       </Button>
                     </Box>
                   </>
                 )}
-
                 {mode === MODE.LOGIN && (
                   <>
                     <Login closeDialog={handleClose} />
-
                     <Box textAlign='center'>
                       <Button color='primary' onClick={() => setMode(MODE.REGISTER)}>
-                        FORM REGISTER
+                         Chưa Đăng ký
                       </Button>
                     </Box>
                   </>
                 )}
-
               </DialogContent>
-            </Dialog> */}
-
-
+              <DialogActions>
+                <Button onClick={handleClose}>Hủy</Button>
+              </DialogActions>
+            </Dialog>
           </Box >
 
         </Toolbar>

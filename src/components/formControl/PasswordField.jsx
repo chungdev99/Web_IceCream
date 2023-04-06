@@ -1,6 +1,5 @@
-import { FormControl, FormHelperText, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@material-ui/core';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import { FormControl, FormHelperText, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Controller } from 'react-hook-form';
@@ -52,7 +51,7 @@ function PasswordField(props) {
                             </IconButton>
                         </InputAdornment>
                     }
-                    labelWidth={70}
+                    // labelWidth={70}
                     value={value}
                     onBlur={onBlur}
                     onChange={onChange}

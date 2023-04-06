@@ -1,72 +1,37 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Avatar, Button, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { LockOutlined } from '@material-ui/icons';
+import { Avatar, Box, Button, LinearProgress, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
-// import InputField from '../../../../components/form-controls/InputField';
 import InputField from '../../../../components/formControl/InputField';
 import PasswordField from '../../../../components/formControl/PasswordField';
-import LinearProgress from '@mui/material/LinearProgress';
-import { Box } from '@mui/system';
-const useStyles = makeStyles((theme) => ({
-    root: {
-        paddingTop: theme.spacing(1),
-        position: 'Relative',
-    },
-
-    avatar: {
-        margin: '0 auto',
-        backgroundColor: theme.palette.secondary.main,
-    },
-
-    title: {
-        margin: theme.spacing(2, 0, 1, 0),
-        textAlign: 'center'
-    },
-
-    submit: {
-        margin: theme.spacing(1.5, 0, 0, 0),
-    },
-
-}));
-
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+// import LinearProgress from '@mui/material/LinearProgress';
 
 RegisterForm.propTypes = {
     onSubmit: PropTypes.func,
 };
 
 function RegisterForm(props) {
-    const classes = useStyles();
-
-    // const schema = yup.object().shape({
-    //     fullname: yup.string()
-    //     .required(' pls enter your full name')
-    //     // .test('should has at least two work', ' pls enter at least two work.', values => {
-    //     //     // console.log(value);
-    //     //     return values.split(' ').length >= 2;
-    //     // }), 
-    // });     
-
+    
     const schema = yup.object().shape({
         fullName: yup.string()
-            .required('Please enter your full name.')
+            .required('Vui lòng nhập họ tên ')
             .test('Should has at least two words.', 'Please enter at least two words.', value => {
                 return value.split(' ').length >= 2;
             }),
 
         email: yup.string()
-            .required('pls enter your email')
-            .email('pls enter a valid email your ok '),
+            .required('Vui lòng nhập email')
+            .email('Vui lòng nhập email'),
 
         password: yup.string()
-            .required('pls enter your password')
-            .min(6, 'pls input in 6 word'),
+            .required('Vui lòng nhập mật khẩu')
+            .min(6, 'Vui lòng nhập mật khẩu trên 6 kí tự'),
 
         retypePassword: yup.string()
-            .required('pls enter your password')
+            .required('Vui lòng nhập mật khẩu')
             .oneOf([yup.ref('password')], ('password dose not match'))
     });
 
@@ -95,7 +60,7 @@ function RegisterForm(props) {
 
 
     return (
-        <div className={classes.root}>
+        <Box >
             {isSubmitting &&
                 <Box sx={{
                     width: '100%',
@@ -104,28 +69,28 @@ function RegisterForm(props) {
                     <LinearProgress />
                 </Box>
             }
-
-            <Avatar className={classes.avatar}>
-                <LockOutlined></LockOutlined>
-            </Avatar>
-
-            <Typography className={classes.title} component="h3" variant="h5">
-                Create An Acccount
-            </Typography>
-
+            <Box sx={{ textAlign: 'center' }}>
+                <Avatar sx={{ margin: '0 auto' }} >
+                    <AcUnitIcon  color="primary" />
+                </Avatar>
+                <br></br>
+                <Typography component="h3" variant="h5">
+                    Nhập thông tin
+                </Typography>
+            </Box>
 
             <form onSubmit={form.handleSubmit(handleSubmit)} >
-                <InputField name="fullName" label="Full Name" form={form} />
+                <InputField name="fullName" label="Họ và tên" form={form} />
                 <InputField name="email" label="Email" form={form} />
-                <PasswordField name="password" label="Password" form={form} />
-                <PasswordField name="retypePassword" label="Retype Password" form={form} />
-
-                <Button disabled={isSubmitting} type='submit' className={classes.submit} variant="contained" color='primary' fullWidth >
-                    Tao tai khoan
+                <PasswordField name="password" label="Mật khẩu" form={form} />
+                <PasswordField name="retypePassword" label="Nhập lại mật khẩu" form={form} />
+                {/* disabled={isSubmitting} */}
+                <Button disabled={isSubmitting} type='submit' variant="contained" color='primary' fullWidth >
+                    Tạo tài khoản
                 </Button>
             </form>
 
-        </div>
+        </Box>
     );
 }
 

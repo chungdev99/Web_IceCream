@@ -1,10 +1,10 @@
 import cartReducer from '../features/Cart/CartSlice';
-// import userReducer from '../features/Auth/userSlice';
+import userReducer from '../features/Auth/userSlice';
 
 const { configureStore } = require('@reduxjs/toolkit');
 
 const rootReducer = {
-    // user: userReducer,
+    user: userReducer,
     cart: cartReducer,
 };
 
